@@ -9,4 +9,13 @@ def sql_connection():
     finally:
         con.close()
 
-sql_connection()
+def sql_table(con):
+    cursorObj = con.cursor()
+    cursorObj.execute("CREATE TABLE tbl_fooditem(id integer PRIMARY KEY, name text, description text)")
+
+    con.commit()
+
+def init_database():
+    item_schema = "CREATE TABLE "
+    vendor_schema = ""
+    order_schema = ""
