@@ -45,24 +45,3 @@ def create_recipe_item_table():
                          FOREIGN KEY (item_id)  REFERENCES tbl_item(item_id),
                           FOREIGN KEY (recipe_id)  REFERENCES tbl_recipe(recipe_id)
     )"
-
-
-def sql_connection():
-    try:
-        con = sqlite3.connect('foodcost.db')
-        print("Database is created")
-    except Error:
-        print(Error)
-    finally:
-        con.close()
-
-def sql_table(con):
-    cursorObj = con.cursor()
-    cursorObj.execute()
-
-    con.commit()
-
-def init_database():
-    create_food_item_schema()
-    create_vendor_table()
-    create_food_order_table()
